@@ -1,0 +1,81 @@
+{
+  "id": "vim",
+  "kind": "plugin",
+  "version": "1.0.8",
+  "label": "Vim",
+  "description": "Vim keybindings for Verse editors \u2014 official Vim mode via monaco-vim. Install from Store; nothing ships in the core app.",
+  "min_app_version": "1.0.500",
+  "default_enabled": false,
+  "secret_keys": [],
+  "contributes": {
+    "settings.tabs": [
+      {
+        "id": "Vim",
+        "label": "Vim",
+        "icon": "assets/icon.svg",
+        "ui": "sections"
+      }
+    ],
+    "settings.sections": [
+      {
+        "tab": "Vim",
+        "id": "general",
+        "title": "Vim keybindings",
+        "description": "Enable Vim mode in Verse editors. A Vim button appears in the header so you can turn it off per file.",
+        "order": 10,
+        "properties": [
+          {
+            "id": "enabled",
+            "type": "boolean",
+            "default": false,
+            "label": "Vim enabled",
+            "description": "Master switch for Vim keybindings in open Verse files."
+          }
+        ]
+      }
+    ],
+    "shell.boot": [
+      {
+        "entry": "ui/boot.js"
+      }
+    ],
+    "agent.tools": {
+      "category": "vim",
+      "tools": [
+        "workspace_editor_vim_set",
+        "workspace_editor_vim_command",
+        "workspace_editor_get_state"
+      ],
+      "intent_pattern": "\\bvim\\b|vim\\s*mode|keybindings?",
+      "plan_tools": [
+        "workspace_editor_get_state"
+      ]
+    },
+    "walkthrough": {
+      "id": "vim",
+      "title": "Vim keybindings setup",
+      "auto_start": "first_enable",
+      "settings_tab": "Vim",
+      "steps": [
+        {
+          "target": "settings.tab.vim",
+          "title": "Vim keybindings setup",
+          "body": "Enable Vim mode for Verse editors here. Press Vim to open settings.",
+          "advance": "require_click",
+          "mode": "rect"
+        },
+        {
+          "target": "settings.tab.vim",
+          "title": "You're set",
+          "body": "Turn on Vim enabled, then use the header Vim button to toggle per file.",
+          "advance": "next",
+          "mode": "rect"
+        }
+      ]
+    }
+  },
+  "backend": {
+    "entry": "backend",
+    "register": "register"
+  }
+}
