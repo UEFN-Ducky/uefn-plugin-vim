@@ -1,9 +1,9 @@
 {
   "id": "vim",
   "kind": "plugin",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "label": "Vim",
-  "description": "Vim keybindings for Verse editors \u2014 official Vim mode via monaco-vim. Install from Store; nothing ships in the core app.",
+  "description": "Vim keybindings for Verse editors — official Vim mode via monaco-vim. Install from Store; nothing ships in the core app.",
   "min_app_version": "1.0.500",
   "default_enabled": false,
   "secret_keys": [],
