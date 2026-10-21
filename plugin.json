@@ -6,6 +6,7 @@
   "description": "Vim keybindings for Verse editors — official Vim mode via monaco-vim. Install from Store; nothing ships in the core app.",
   "min_app_version": "1.0.500",
   "default_enabled": false,
+  "data_sharing": false,
   "secret_keys": [],
   "contributes": {
     "settings.tabs": [
